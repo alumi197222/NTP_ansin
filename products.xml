@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  =============================
+  智邦生活館 - 輕鬆架站 RSS 2.0
+  =============================
+  產生器資訊
+  應用程式: Foresight v0.3.2 RSS 2.0 Generator
+  更新日期: Mar 27 16:41 CST 2007
+-->
+<rss version="2.0">
+  <channel>
+    <!-- 公司名稱 -->
+    <title>安心殯儀顧問管理有限公司</title>
+    <!-- 公司黃頁網站 -->
+    <link>https://www.ansin999.com/</link>
+    <!-- 公司簡介 -->
+    <description>本公司成立至今多次榮獲政府評鑑殯葬禮儀服務績優業者。全體同仁秉持［專業、誠信、尊嚴］的服務理念，用心珍惜每次託付，配合各宗教禮俗與客戶需求，全程認真完善規劃與圓滿後續關懷，盡心盡力做到最好，這也是我們最引以為傲。安心此後更以［將心比心，只為您安心］的精神為您服務。服務項目：土葬／火葬／樹葬／海葬／棺木／骨罐／骨罈／塔位／墓地／撿骨／法事／禮車／靈車／花籃／壽衣／殯葬用品／佛事規劃／生前契約規劃諮詢／靈堂奠禮會場佈置／靈骨歸鄉返回大陸</description>
+    <!-- 文件語言 -->
+    <language>zh</language>
+    <!-- 版權說明 -->
+    <copyright>智邦生活館 版權所有</copyright>
+    <!-- 管理工具 -->
+    <managingEditor>Foresight v0.3.2 RSS 2.0 Generator</managingEditor>
+    <!-- 管理者 -->
+    <webMaster>智邦生活館 網站代管</webMaster>
+    <!-- 出版日期 -->
+    <pubDate>Fri, 02 Jun 2023 23:40:32 CST</pubDate>
+    <!-- 最後製造日期 -->
+    <lastBuildDate>Fri, 02 Jun 2023 23:40:32 CST</lastBuildDate>
+    <!-- 產生器 -->
+    <generator>智邦生活館 版權所有</generator>
+    <!-- 存活時間, 這個頻道會被快取幾分鐘 -->
+    <ttl>10080</ttl>
+	 <!-- 分類列表 -->
+		<category id="191525" level="0">壽衣</category>
+		<category id="98025" level="0">外場</category>
+		<category id="98024" level="0">會場</category>
+		<category id="98023" level="0">車輛</category>
+		<category id="98022" level="0">祭品</category>
+	    <!-- 每一個項目的內容 -->
+        <item>
+	  <!-- 商品流水號 -->
+	  <id>408090</id>
+      <!-- 項目標題 -->
+	  <title></title>
+      <!-- 發佈時間 -->
+      <pubDate></pubDate>
+      <!-- 項目分類 -->
+      <category></category>
+	  <!-- 項目價錢 -->
+      <price></price>
+	  <!-- 項目優惠價 -->
+      <sprice></sprice>
+      <!-- 項目內容 -->
+      <description></description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link></link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname></hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid></guid>
+      <!-- 商品圖 -->
+          </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>高級菜碗</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 13:29:23 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>祭品</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 1500</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>用於祭拜逝者與先人祖先。(碗、筷、托盤須歸還)</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408076.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408076.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408076.jpg" length="9010" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>外場圓頂棚架</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:25:03 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>外場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>依寬度分12尺、15尺、18尺、20尺、24尺、30尺(長度固定10尺長)</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408093.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408093.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408093.jpg" length="7302" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>蘭花淨水台</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:22:25 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>淨水洗淨穢氣，讓每一位來賓如意吉祥</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408112.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408112.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408112.jpg" length="7070" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>葷三牲</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 15:52:56 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>祭品</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 1200</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>葷三牲:全雞、全魚、豬肉。&amp;nbsp;</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839242.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839242.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839242.jpg" length="6919" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>12菜碗</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 15:51:53 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>祭品</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 600</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>12菜碗:有分葷的跟素的二種</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839249.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839249.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839249.jpg" length="10265" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>男傳統壽衣</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 16:12:10 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>壽衣</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 6000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>男傳統壽衣</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839291.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839291.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839291.jpg" length="4751" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>女傳統壽衣</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 16:10:38 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>壽衣</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 6000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>女傳統壽衣</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839292.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839292.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839292.jpg" length="4883" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>男西裝壽衣</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 16:11:26 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>壽衣</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 6000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>男西裝壽衣</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839293.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839293.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839293.jpg" length="4458" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>接體車</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 22:24:34 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>車輛</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 5000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>T5接體車接體(醫院)與安置大體(殯儀館)同一縣市單程計之，使用3小時為限，超出每小時800，超出不足一小時會以一小時計之。</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839404.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839404.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839404.jpg" length="7236" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>箱型靈車</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 22:31:29 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>車輛</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 6000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>T5箱型靈車(限火化棺木)靈柩上車與火葬場同一縣市單程計之，使用3小時為限，超出每小時800，超出不足一小時會以一小時計之。</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839405.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839405.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839405.jpg" length="6038" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>箱型進塔車</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 22:20:05 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>車輛</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 5000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>賓士箱型進塔車同一縣市，使用3小時為限，超出每小時1000，超出不足一小時會以一小時計之。</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839406.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839406.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839406.jpg" length="5974" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>西式靈車</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 22:28:00 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>車輛</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 12000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>西式靈車靈柩上車與火葬場(墓園)同一縣市單程計之，使用3小時為限，超出每小時2000，超出不足一小時會以一小時計之。</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839408.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839408.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839408.jpg" length="6599" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>爬山虎靈車</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 22:29:24 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>車輛</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 8000</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>爬山虎靈車靈柩上車與火葬場(墓園)同一縣市單程計之，使用3小時為限，超出每小時1000，超出不足一小時會以一小時計之。</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_839410.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_839410.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_839410.jpg" length="7216" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>水果籃</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 30 Aug 2016 13:30:10 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>祭品</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ 1500</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>可以替代傳統牲禮。售價1500元起</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408072.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408072.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408072.jpg" length="11458" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>簡約花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:20:09 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>親人的陪伴下是最好的送別</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408111.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408111.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408111.jpg" length="9728" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>簡約花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:18:55 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>簡約的花臺陪伴著小天使</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408110.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408110.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408110.jpg" length="6533" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:09:59 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>大圖輸出的人像如同逝者的身影烙印在我們心中</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408109.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408109.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408109.jpg" length="7319" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:11:14 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>百合密滿的低調奢華代表逝者的不凡人生</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408107.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408107.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408107.jpg" length="10518" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:06:07 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>和風花臺</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408106.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408106.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408106.jpg" length="8713" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 19:11:38 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>白色的純淨</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408105.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408105.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408105.jpg" length="7387" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:57:36 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>圓滿花臺</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408103.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408103.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408103.jpg" length="7936" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:55:45 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>蓮花花台</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408101.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408101.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408101.jpg" length="6300" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>鮮花花臺</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:55:58 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>乒乓球是亡者的最愛，為逝者做出一場精采的比賽~~</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408100.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408100.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408100.jpg" length="8004" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>西式教堂</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:20:53 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>配合教堂規劃佈置</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408092.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408092.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408092.jpg" length="8932" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>西式教堂</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:19:42 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>配合教堂規劃佈置</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408091.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408091.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408091.jpg" length="7546" type="image/jpeg"/>    </item>
+        <item>
+	  <!-- 商品流水號 -->
+	  <id></id>
+      <!-- 項目標題 -->
+	  <title>西式教堂</title>
+      <!-- 發佈時間 -->
+      <pubDate>Tue, 06 Aug 2013 18:18:35 +0800</pubDate>
+      <!-- 項目分類 -->
+      <category>會場</category>
+	  <!-- 項目價錢 -->
+      <price>NT$ (Call)</price>
+	  <!-- 項目優惠價 -->
+      <sprice>NT$ (Call)</sprice>
+      <!-- 項目內容 -->
+      <description>配合教堂規劃布置</description>
+	  <!-- 項目簡介 -->
+      <intro></intro>
+      <!-- 項目連結 -->
+      <link>https://www.ansin999.com/product_408090.html</link>
+	  <!-- 自訂連結 -->
+	  <href></href>
+	  <hrefname>相關連結</hrefname>
+      <!-- 唯一識別名稱 -->
+      <guid>https://www.ansin999.com/product_408090.html</guid>
+      <!-- 商品圖 -->
+      <enclosure url="https://www.ansin999.com/images/product_408090.jpg" length="9031" type="image/jpeg"/>    </item>
+    
+  </channel>
+</rss>

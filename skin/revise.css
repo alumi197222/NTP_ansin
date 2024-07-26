@@ -1,0 +1,23 @@
+/* REVISE CSS  */
+   
+/* 用戶內容css reset */
+.Content-body p:not(.first-p){
+  padding:0px;
+  letter-spacing:0;
+  color:initial;
+  font-size:inherit;line-height: inherit;font: inherit; 
+}
+/* 側邊選單寬度與 .sidepanel 相同*/
+.sideA:link, .sideA:visited{ width:100%; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; }
+/* 自訂欄位下拉選單最大寬度設定 */
+select.cf{max-width:180px;}
+/* 新版首頁的字串長度顯示限制 */
+.short_title{width:190px;}
+.long_title{width:270px;}
+.idx_intro .proditem p{
+    width: 150px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    white-space: nowrap;
+} 

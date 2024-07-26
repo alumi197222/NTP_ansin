@@ -1,0 +1,739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" >
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-TW" lang="zh-TW"  >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>安心禮儀</title> 
+<link type="text/css" href="skin/jquery-ui/jquery-ui-1.10.0.custom.min.css" rel="stylesheet" />
+<script type="text/javascript" src="scripts/jquery-1.9.0.js"></script>
+<script type="text/javascript" src="scripts/jquery-ui-1.10.0.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" rev="stylesheet" media="all" href="skin/table.css?ver=1472567498" />
+<script type="text/javascript" src="scripts/twzipcode.min.js"></script>
+<script type="text/javascript" src="scripts/ui.datepicker-zh-TW.js"></script>
+<script type="text/javascript">
+<!--
+var shipping_price = 0;
+var shipping_price_1 = 0;
+var shipping_price_2 = 0;
+var shipping_price_3 = 0;
+var shipping_price_free = 0;
+// var shipping_type = 1;
+var deliver = "LATER";
+var deliver_day = "0";
+$(document).ready(function(){
+	onabroad();
+}); 
+//浮點數運算BUG(處理乘法)
+function accMul(arg1, arg2) {
+	 var m = 0, s1 = arg1.toString(), s2 = arg2.toString();
+	 try { m += s1.split(".")[1].length } catch (e) { }
+	 try { m += s2.split(".")[1].length } catch (e) { }
+	 return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m)
+ } 
+//浮點數運算BUG(處理+法)
+function accAdd(arg1, arg2) {
+	 var r1, r2, m ;
+	 try { r1 = arg1.toString().split(".")[1].length } catch (e) { r1 = 0 }
+	 try { r2 = arg2.toString().split(".")[1].length } catch (e) { r2 = 0 } 
+	 m = Math.pow(10, Math.max(r1, r2))  ;
+	 return (arg1*m + arg2*m) / m ;
+} 
+// 檢查數量, 重算價格
+function onChangeQty() {
+   var idx;
+   var tr,td;
+   var qty,isqty,price,subtotal;
+   var total = 0;
+   // 掃描 table 的每一列
+   tr = $("#sorder_products tbody tr"); 
+   for(idx=0;idx<tr.length;idx++) {
+      // 檢查這一列是不是商品
+      td = $("td",tr[idx]);
+      if(td.length==5) { 
+         // 計算小計
+         isqty = false; 
+         qty   = $("input[class=hd_qty]",tr[idx]).val();   
+		 cfqty = 0;
+         if(qty!=undefined) { 
+            if(/[0-9]+/.test(qty)) {
+               isqty    = true;
+               price    = $("td:eq(2)",tr[idx]).text(); 
+               subtotal = accMul(price,qty); 
+               $("td:eq(4)",tr[idx]).text(subtotal); 
+			   total = accAdd(total,subtotal);
+			   // 處理自訂欄位開始
+			   // 自訂欄位選項數量  
+			   cf_len = $(".cfp ", tr[idx]).length;
+			   $(".cfp input.cf_qty", tr[idx] ).removeClass( 'warning_input' );
+			   if(cf_len==1){ // 還沒有選擇過 如果有自訂欄位的話就顯示
+					p_width = $("#sorder_products tbody th").width() - $('#sorder_products tbody th:eq(1)').width() -25 ;
+					$(".cfp",tr[idx]).css('width',(p_width+'px')); //調整寬度
+					$(".cfp",tr[idx]).show();
+					// 數量帶下來
+					if($("input.cf_qty",tr[idx] ).length==1){
+						$(".cfp:first input.cf_qty",tr[idx] ).val(qty);
+					}
+					$( tr[idx] ).css('height',(35 *(1+ cf_len ) )+'px'); // 調整高度 
+				}else if(cf_len>1){ // 已經有選擇過，檢查數量
+					$(".cfp input[class=cf_qty]",tr[idx]  ).each(function(key, value){
+						cfqty+= parseInt($(this).val()); //選項的qty總合
+					 }); 
+					 if(cfqty>qty && qty>0  ){
+						alert('商品數量有誤');
+						$(".cfp input.cf_qty",tr[idx] ).addClass( 'warning_input' );  
+					 }
+				}
+				// 處理自訂欄位結束
+            }
+         }
+         if(!isqty||qty==0){
+			span_pos = $("span" , tr[idx]).position();
+			// console.log(span_pos.left +' '+ span_pos.top);
+		 	 $("p.cfp:eq(0)", tr[idx] ).hide();//這段不記得要做甚麼先註解 .css({'left':span_pos.left +'px','top':span_pos.top+15+'px'});
+			 $("p.cfp:gt(0)", tr[idx] ).remove();
+			$( tr[idx]).css('height', '35px');
+			$("td:eq(4)",tr[idx]).html("&nbsp;");
+		 }
+      }
+   } 
+   // 運費     
+   if(shipping_price_free> 0 &&  total>=shipping_price_free){
+    $("#shipping_price").text("0");
+   }else{
+    total += shipping_price;
+	 $("#shipping_price").text(shipping_price); 
+   }
+   // 總計
+   $("#total").text(total);
+}
+function onChangeCFQty(pid){
+	var cfqty = 0;
+	var total = $("input[class=hd_qty]",".tr"+pid).val();
+	$("input.cf_qty",".tr"+pid).removeClass( 'warning_input' ); //清空樣式
+	$("input[class=cf_qty]",".tr"+pid).each(function(key, value){
+		qty = parseInt($(this).val()); 
+		if(qty==0){   
+			$('.tr'+pid+' p.cfp:eq('+key+') .removecf' ).trigger('click');  //刪掉
+		}else cfqty+=qty; //選項的qty總合
+	 });  
+	// > : 跳訊息
+	// = : ok
+	// < : clone  	 
+	if(cfqty>total){
+		//alert('商品數量有誤');
+		//$("input.cf_qty",".tr"+pid).addClass( 'warning_input' );
+		$('.hd_qty',".tr"+pid).val(cfqty).trigger('change'); 
+	}else if(cfqty<total){
+		var max_opt_num = 1; //選項最多組合數
+	    $(".cfp:first .cf",".tr"+pid+"").each(function(){ 
+		   max_opt_num *= ($("option",this).length);
+		});
+		cfp_len = $(".cfp",".tr"+pid).length;//目前的選項組合數
+		if(cfp_len<max_opt_num){
+		// 複製一個選項加在最後面
+		tmp = $(".cfp:last",".tr"+pid).clone().css('margin-top',(40*cfp_len)+6 + 'px');
+		$(".cfp:last",".tr"+pid).after(tmp); 
+		// 把剩下的數量設定一下
+		$(".cfp:last input.cf_qty",".tr"+pid).val(total-cfqty);
+		$("input,select",".tr"+pid+" .cfp:last").each(function(){
+			inputname = $(this).attr('name');
+			var match = inputname.split(/[\[\]]/);
+			tmp = parseInt(match[1])+1 ;
+			$(this).attr('name',inputname.replace(/_cf\[(\d)\]\[/,'_cf['+tmp+']['));
+		});
+		// 調整高度
+		$(".tr"+pid).css('height',(70 + 40*( cfp_len ) )+'px');
+		} 
+	} 
+}
+function setShippingPrice(type){
+	 $(".opt_addr").text('*');
+ if(type==1){
+   shipping_price  = shipping_price_1;
+   $("#shipping_price").text(shipping_price);
+   document.forms['sorder'].elements['cus_shipping_price'].value = shipping_price_1;
+ }else if(type==2){
+   shipping_price  = shipping_price_2;
+   $("#shipping_price").text(shipping_price);
+   document.forms['sorder'].elements['cus_shipping_price'].value = shipping_price_2;   
+ }else if(type==3){
+   shipping_price  = shipping_price_3;
+   $("#shipping_price").text(shipping_price);
+   document.forms['sorder'].elements['cus_shipping_price'].value = shipping_price_3;     
+	 	 $(".opt_addr").text('');
+ }
+}
+// 同上
+function copyToReceiver(chk) {
+   if(chk) {
+      f = document.forms['sorder'];
+      f.elements['rperson'].value = f.elements['operson'].value;
+      f.elements['rtel'].value = f.elements['otel'].value;
+      f.elements['rext'].value = f.elements['oext'].value;
+      f.elements['rmobile'].value = f.elements['omobile'].value;
+      f.elements["rmobile_foreign"].checked = f.elements["bmobile_foreign"].checked;
+   }
+   onabroad();
+}
+function onabroad(){
+	f = document.forms['sorder'];
+	if( f.elements["rmobile_foreign"].checked ){ 	 
+		if(f.elements["zipcode1"][0]==undefined)
+			f.elements["zipcode1"].style.display='none';
+		else
+			f.elements["zipcode1"][0].style.display='none';
+		f.elements["zipcode2"].style.display='none';
+		f.elements["county"].style.display='none';
+		f.elements["area"].style.display='none';
+	}
+	else{
+		if(f.elements["zipcode1"][0]==undefined)
+			f.elements["zipcode1"].style.display='';
+		else
+			f.elements["zipcode1"][0].style.display='';
+		f.elements["zipcode2"].style.display='';
+		f.elements["county"].style.display='';
+		f.elements["area"].style.display='';
+	}
+}
+// 檢查欄位
+function checkFields() {  
+   var message = "";
+   var f = document.forms['sorder'];
+	  $('input').removeClass( 'warning_input' );
+   var labels = {
+      email:   "Email",
+      operson: "訂購人",
+      otel:    "訂購人 電話",
+      oext:    "訂購人 分機",
+      omobile: "訂購人 手機",
+      rperson: "收件人",
+      rtel:    "收件人 電話",
+      rext:    "收件人 分機",
+      rmobile: "收件人 手機",
+      zipcode: "郵遞區號",  
+      address: "到貨地址"
+   };
+   var fmts = {
+	  email:   /^[_a-zA-Z0-9_-]+(\.[_a-zA-Z0-9_-]+)*@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)*(\.[a-zA-Z0-9_-]{2,63})$/,
+     // email:   /^([a-zA-Z0-9_-\.])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/,
+      operson: /.+/,
+      otel:    /\d+/,
+      oext:    /\d*/,
+      omobile: /09\d{8}/,
+      rperson: /.+/,
+      rtel:    /\d+/,
+      rext:    /\d*/,
+      rmobile: /09\d{8}/,
+      zipcode: /^\d{3,5}$/,
+      address: /.+/
+   };  
+	 //if( f.elements["shippingtype"].value.substr(0,4)=='超商取貨' ){
+	if( $('.CVS').is(':checked') ){
+		delete labels.address;
+		delete fmts.address;
+		delete labels.zipcode;
+		delete fmts.zipcode;
+	 }
+	 if( f.elements["rmobile_foreign"].checked ){ 	 
+		 fmts.rmobile = /^\d+$/;
+	 }
+	 if( f.elements["bmobile_foreign"].checked ){  
+		 fmts.omobile = /^\d+$/;
+	 }
+   if(f.elements["istoday"]!=null && f.elements["istoday"].value=="N") {
+      v = f.elements["rdate"].value;
+      if(!/\d{4}-\d{2}-\d{2}/.test(v)) {
+         message += "到貨時間格式不正確\n";
+      }
+   }
+   for(k in fmts) {
+      v = f.elements[k].value;
+	  if(k =="zipcode" && f.elements["rmobile_foreign"].checked )
+	  {
+		 continue;	
+	  }
+      if(!fmts[k].test(v)) {
+		$('input[name='+k+']').addClass( 'warning_input' ).keyup(function(){ $(this).removeClass('warning_input'); });
+        message += labels[k]+"格式不正確\n";
+      }
+   }
+   // 自訂欄位選項數量檢查     
+	if( $(".cfp:visible" ).length ){
+		$(".hd_qty").each(function(){
+			var sum = 0;
+			if(sum = $(this).val()){				
+				/*
+				p1_qty
+				p1_cf[0][opt][0][name]
+				p1_cf[0][opt][0][val]
+				p1_cf[0][qty]
+				*/
+				var tridx = $(this).attr('name').replace('qty',''); //p1
+				var pid = $( 'input[name='+ tridx + 'id]' ).val();			  // product id		
+				if($(".tr"+pid+" .cf_qty").length ){
+				// calculate sum 
+				var sum_cal = 0;
+				$(".tr"+pid+" .cf_qty").each(function(){
+					sum_cal += parseInt($(this).val());
+				}); 
+				if(sum_cal!=sum){ 
+					$("input.cf_qty",".tr"+pid).addClass( 'warning_input' );
+					message+= "[ " +$("span#pname"+pid).text()+" ] 商品數量有誤\n";
+				}
+				}
+			}
+		});
+	}
+   var total = parseInt($("#total").text()) - parseInt(($("#shipping_price").text()==="")?0:$("#shipping_price").text()) ; 
+   if(total=="" || total<=0) message += "至少要買一項商品\n";
+	if(total>2000 && $('input[name=shippingtype]:checked').val()=='cvs3') message += "超取ATM付款限制2000元內\n";
+	if(total>6000 && $('input[name=shippingtype]:checked').val()=='cvs1') message += "超取付款限制6000元內\n";
+	if($("input[name=receipt_title]").val()=='' ){ message += $("span."+$('#receipt_type').val()+"_show").text()+"格式不正確\n"; $("input[name=receipt_title]").addClass( 'warning_input' );}
+	if($('#receipt_type').val()=='3copies'&& f.elements["receipt_serial"]!=null  && idchk(f.elements["receipt_serial"].value)==false){ message += "統一編號格式不正確\n";  $("input[name=receipt_serial]").addClass( 'warning_input' );}
+   if(message) alert(message);
+   return (message=="") ? confirm("確定要送出嗎?") : false;
+	/*if((message=="") ? confirm("確定要送出嗎") : false){
+	   f.action = "http://hosting.url.com.tw/sorder/index.php/sorder/";
+	   f.method = "POST"; 
+		f.submit();
+	}*/
+}
+/*檢查統一編號*/
+function idchk(idvalue) {
+   var tmp = new String("12121241");
+   var sum = 0;
+   re = /^\d{8}$/;
+   if (!re.test(idvalue)) { 
+       return false;
+    }
+   for (i=0; i< 8; i++) {
+     s1 = parseInt(idvalue.substr(i,1));
+     s2 = parseInt(tmp.substr(i,1));
+     sum += cal(s1*s2);
+   }
+   if (!valid(sum)) {
+      if (idvalue.substr(6,1)=="7") return(valid(sum+1));
+   }  
+   return(valid(sum));
+}
+function valid(n) {
+   return (n%10 == 0)?true:false;
+}
+function cal(n) {
+   var sum=0;
+   while (n!=0) {
+      sum += (n % 10);
+      n = (n - n%10) / 10;  // 取整數
+     }
+   return sum;
+}
+/*檢查統一編號*/
+$(document).ready(function() { 
+ // 調整自訂欄位位置
+var hd_qty_pos = $( ".hd_qty:eq(0)" ).position();
+var pname_pos = $( "span[id^='pname']:eq(0)" ).position();
+if($('.cf_qty').length > 0)$('.cf_qty').css("left", (hd_qty_pos.left-pname_pos.left-5)+"px");
+//$(".cfp").css('margin-top', '46px');
+// 視窗變動時要調整left
+$( window ).resize(function() {
+	pname_pos = $( "span[id^='pname']:eq(0)" ).position();
+	$(".cfp").css("left",pname_pos.left+"px"); 
+});
+// 刪除自訂欄位選項
+$(document).on('click', '.removecf', function(){
+	cfp_len = $(this).parent().siblings().length-1;
+	tr_class = "."+$(this).parent().parent().parent().attr('class');
+	if(cfp_len>=1){
+		$( tr_class ).css('height',(70 + 40*( cfp_len-1 ) )+'px');
+		var tmp_val = parseInt($( '.cf_qty',$(this).parent()).val());
+		$(this).parent().remove();
+		$(tr_class+' .hd_qty').val($(tr_class+' .hd_qty').val()-tmp_val).trigger('change'); 
+		$(tr_class+' p.cfp').each(function(k,v){
+			$(this).css('margin-top',(40*k+6)+'px');
+		});
+	}else{
+		// 只有一個選項:隱藏並設定為0
+		//alert(tr_class);
+		$(this).parent().hide();
+		$(tr_class+' .hd_qty').val('').trigger('change'); 
+		$( tr_class ).css('height','30px');
+	} 
+});
+  //$('.removecf').on('click',function(){alert('test');});
+ if( $('html').attr('xml:lang') == 'zh-CN' ){
+	$('#sorder_lang').val('cn');
+ }
+try{
+   $("#addrbox").twzipcode({
+      countyName:    'county' ,
+      districtName:      'area'   ,
+      zipcodeName:   'zipcode1',
+      countySel: '縣市' ,
+      districtSel:   ''
+   });
+   }catch(e){
+		for (key in e)   {
+			  //alert(e[key]); // s += a[key] + "&ltBR>";
+			}
+   }
+   if(deliver=='LATER' || deliver=='ALL'){
+   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+   $('#rdate_txt').before('<br/>');
+   $('#rdate').after('<div id="r_datepicker"></div>');  
+   $("#r_datepicker").datepicker({
+     dateFormat: 'yy-mm-dd',
+     defaultDate: +1,
+     minDate: '+'+deliver_day,
+     onSelect: function(date, obj){
+       $('input[data-rid="LATER"]').attr('checked',true);
+       $('#rdate').val(date);
+       $( "#r_datepicker" ).hide();
+     },
+   });
+   $( "#r_datepicker" ).datepicker( "option",  $.datepicker.regional[ 'zh' ] );
+   $( "#r_datepicker" ).hide();
+   }else{
+   $("#rdate").datepicker({
+      dateFormat: 'yy-mm-dd',
+      defaultDate: +1,
+      onClose: function(){
+        $('input[data-rid="LATER"]').attr('checked',true);
+      },
+			minDate: '+'+deliver_day
+   });
+	 $( "#rdate" ).datepicker( "option",  $.datepicker.regional[ 'zh' ] );
+   }
+   }
+   if(deliver=='LATER_DATE' || deliver=='ALL'){
+   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+   $('#rdate_2_txt').before('<br/>');
+   $('#rdate_2').after('<div id="r2_datepicker"></div>');
+   $("#r2_datepicker").datepicker({
+     dateFormat: 'yy-mm-dd',
+     defaultDate: +1,
+     minDate: '+'+deliver_day,
+     onSelect: function(date, obj){
+       $('input[data-rid="LATER_DATE"]').attr('checked',true);
+       $('#rdate_2').val(date);
+       $( "#r2_datepicker" ).hide();
+     },
+   });
+   $( "#r2_datepicker" ).datepicker( "option",  $.datepicker.regional[ 'zh' ] );
+   $( "#r2_datepicker" ).hide();
+   }else{
+   $("#rdate_2").datepicker({
+      dateFormat: 'yy-mm-dd',
+      defaultDate: +1,
+      onClose: function(){
+        $('input[data-rid="LATER_DATE"]').attr('checked',true);
+      },
+                        minDate: '+'+deliver_day
+   });
+         $( "#rdate_2" ).datepicker( "option",  $.datepicker.regional[ 'zh' ] );
+   }
+   }
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+     $('input[data-rid="TODAY"]').click(function(){
+       if($( "#r_datepicker" ).length > 0)$( "#r_datepicker" ).hide();
+       if($( "#r2_datepicker" ).length > 0)$( "#r2_datepicker" ).hide();
+     });
+     $('input[data-rid="LATER"]').click(function(){
+       if($( "#r_datepicker" ).length > 0)$( "#r_datepicker" ).show();
+       if($( "#r2_datepicker" ).length > 0)$( "#r2_datepicker" ).hide();
+     });
+     $('input[data-rid="LATER_DATE"]').click(function(){
+       if($( "#r_datepicker" ).length > 0)$( "#r_datepicker" ).hide();
+       if($( "#r2_datepicker" ).length > 0)$( "#r2_datepicker" ).show();
+     });
+     $('#rdate').click(function(){
+       if($( "#r_datepicker" ).length > 0)$( "#r_datepicker" ).show();
+       if($( "#r2_datepicker" ).length > 0)$( "#r2_datepicker" ).hide();
+     });
+     $('#rdate_2').click(function(){
+       if($( "#r_datepicker" ).length > 0)$( "#r_datepicker" ).hide();
+       if($( "#r2_datepicker" ).length > 0)$( "#r2_datepicker" ).show();
+     });
+   }
+   $("#CoD").click();
+	if($('#receipt_type').val()=='2copies'){
+		$('.3copies_show').hide();
+		$('.2copies_show').show();
+	}
+   $('#receipt_type').change(function(){
+	if($(this).val()=='3copies'){ 
+		$('.3copies_show').show();
+		$('.2copies_show').hide();
+	}else{	
+		$('.3copies_show').hide();
+		$('.2copies_show').show();
+	}
+   });
+try{
+//取得舊資料
+var url=window.location.toString();
+var str="";
+if(url.indexOf("?")!=-1){ //url裡有"?"符號
+  var ary=url.split("?")[1].split("&"); 
+  for(var i in ary){
+    //變數名稱 ary[i].split("=")[0]
+    //變數值 ary[i].split("=")[1]
+	inputname = ary[i].split("=")[0];
+	inputval = ary[i].split("=")[1];
+	if( inputname!='app' ){	
+		if(inputname=='shippingtype'||inputname=='istoday'){  // 處理radio  
+		 $('input[value="'+decodeURI(inputval.replace('%2F','/'))+'"]').trigger('click');		 
+		}else if(inputname=='bmobile_foreign'||inputname=='rmobile_foreign'){  // 處理checkbox 
+		 $('input[name="'+inputname+'"]').prop("checked", (inputval=='on') ? true : false ); 
+		}else if(inputname=='rtime' || inputname=='area' || inputname=='county' ){ // 處理select
+			$('select[name="'+inputname+'"] option[value="'+decodeURI(inputval)+'"]').trigger('click'); 
+		}else if(inputname=='remarks'){
+	    $('textarea[name="'+inputname+'"]').val(decodeURI(inputval).replace('%40','@'));
+		}else{
+			$('input[name="'+inputname+'"]').val(decodeURI(inputval).replace('%40','@')); 
+	  }
+	}
+  }
+} 
+onChangeQty();
+}catch(e){
+	 alert(e); 
+   }	 
+});
+-->
+</script> 
+<div class="main">
+<form  action="http://hosting.url.com.tw/sorder/index.php/sorder/" method="POST" onsubmit="return checkFields();" name="sorder">
+<table id="sorder_products" width="100%" border="0" cellspacing="0" cellpadding="0" class="table_A1">
+   <tr>
+      <th colspan="5" scope="col">線上訂購單</th>
+   </tr>
+   <tr>
+      <th width="40" scope="col">編號</th>
+      <th  scope="col">品名</th>
+      <th width="10%" scope="col">價格</th>
+      <th width="40" scope="col">數量</th>
+      <th width="15%" scope="col">小計</th>
+   </tr>
+                           <tr>
+         <td class="tdtitle" colspan="5" align="left">壽衣</td>
+      </tr>
+                  <tr class="tr839291">
+            <td>19</td>
+            <td><span id="pname839291">男傳統壽衣</span>
+			</td>
+            <td>6000</td>
+            <td align="center">
+               <input type="hidden" name="p1_id" value="839291"/>
+               <input type="number" min="0" max="99999" step="1" name="p1_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839293">
+            <td>21</td>
+            <td><span id="pname839293">男西裝壽衣</span>
+			</td>
+            <td>6000</td>
+            <td align="center">
+               <input type="hidden" name="p2_id" value="839293"/>
+               <input type="number" min="0" max="99999" step="1" name="p2_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839292">
+            <td>20</td>
+            <td><span id="pname839292">女傳統壽衣</span>
+			</td>
+            <td>6000</td>
+            <td align="center">
+               <input type="hidden" name="p3_id" value="839292"/>
+               <input type="number" min="0" max="99999" step="1" name="p3_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                              <tr>
+         <td class="tdtitle" colspan="5" align="left">車輛</td>
+      </tr>
+                  <tr class="tr839410">
+            <td>26</td>
+            <td><span id="pname839410">爬山虎靈車</span>
+			</td>
+            <td>8000</td>
+            <td align="center">
+               <input type="hidden" name="p4_id" value="839410"/>
+               <input type="number" min="0" max="99999" step="1" name="p4_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839408">
+            <td>25</td>
+            <td><span id="pname839408">西式靈車</span>
+			</td>
+            <td>12000</td>
+            <td align="center">
+               <input type="hidden" name="p5_id" value="839408"/>
+               <input type="number" min="0" max="99999" step="1" name="p5_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839406">
+            <td>24</td>
+            <td><span id="pname839406">箱型進塔車</span>
+			</td>
+            <td>5000</td>
+            <td align="center">
+               <input type="hidden" name="p6_id" value="839406"/>
+               <input type="number" min="0" max="99999" step="1" name="p6_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839405">
+            <td>23</td>
+            <td><span id="pname839405">箱型靈車</span>
+			</td>
+            <td>6000</td>
+            <td align="center">
+               <input type="hidden" name="p7_id" value="839405"/>
+               <input type="number" min="0" max="99999" step="1" name="p7_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839404">
+            <td>22</td>
+            <td><span id="pname839404">接體車</span>
+			</td>
+            <td>5000</td>
+            <td align="center">
+               <input type="hidden" name="p8_id" value="839404"/>
+               <input type="number" min="0" max="99999" step="1" name="p8_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                              <tr>
+         <td class="tdtitle" colspan="5" align="left">祭品</td>
+      </tr>
+                  <tr class="tr839242">
+            <td>17</td>
+            <td><span id="pname839242">葷三牲</span>
+			</td>
+            <td>1200</td>
+            <td align="center">
+               <input type="hidden" name="p9_id" value="839242"/>
+               <input type="number" min="0" max="99999" step="1" name="p9_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr839249">
+            <td>18</td>
+            <td><span id="pname839249">12菜碗</span>
+			</td>
+            <td>600</td>
+            <td align="center">
+               <input type="hidden" name="p10_id" value="839249"/>
+               <input type="number" min="0" max="99999" step="1" name="p10_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr408076">
+            <td>2</td>
+            <td><span id="pname408076">高級菜碗</span>
+			</td>
+            <td>1500</td>
+            <td align="center">
+               <input type="hidden" name="p11_id" value="408076"/>
+               <input type="number" min="0" max="99999" step="1" name="p11_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                           <tr class="tr408072">
+            <td>1</td>
+            <td><span id="pname408072">水果籃</span>
+			</td>
+            <td>1500</td>
+            <td align="center">
+               <input type="hidden" name="p12_id" value="408072"/>
+               <input type="number" min="0" max="99999" step="1" name="p12_qty" class="hd_qty" value=""   onchange="onChangeQty()" class="num_only"  style="width:60px;ime-mode:disabled;"/>
+            </td>
+            <td>&nbsp;</td>
+         </tr>
+                                       <tr>
+      <td colspan="4" align="right">總計</td>
+      <td align="center"><span id="total">&nbsp;</span></td>
+   </tr>
+      <tr>
+      <td align="center">備註</td>
+      <td colspan="4" align="left"><textarea name="remarks" style="width: 99%; height: 80px;"></textarea></td>
+   </tr>
+</table>
+<input type="hidden" name="serverid" value="60950"/>
+<input type="hidden" name="pcount" value="12"/>
+<input type="hidden" name="cus_shipping_price" value="0"/>
+<table width="100%" border="0" cellspacing="0" cellpadding="0"  class="table_A1">
+   <tr>
+      <th colspan="8" class="tdtitle" align="center">訂購人資料</th>
+   </tr>
+      <tr>
+      <td align="left" >到貨時間：</td>
+      <td colspan="7" align="left">
+                           <span id="rdate_txt">擇日</span><input type="radio" name="istoday" value="N" data-rid="LATER"/>
+         <input type="text" id="rdate" name="rdate" value="" style="width:100px;"/>
+      </td>
+   </tr>
+      <tr>
+      <td align="left">付款方式</td>
+      <td align="left" colspan="7">
+			<input type="radio" name="shippingtype" id="ATM" onClick="setShippingPrice(2);onChangeQty();" value="atm" checked/>ATM/銀行匯款 (ATM匯款帳號：006 合作金庫 六合分行(分行代號:0061324) 0081-717-537823 戶名: 安心國際殯葬禮儀有限公司)			 
+			</td>
+   </tr>
+   <tr>
+      <td align="left"><font color='red'>*</font>Email：</td>
+      <td align="left" colspan="7"><input type="text" name="email" value="" style="width:400px;"/></td>
+   </tr>
+   <tr>
+      <td width="13%" align="left"><font color='red'>*</font>訂購人：</td>
+      <td width="9%" align="left"><input type="text" name="operson" value="" style="width:80px;"/></td>
+      <td width="9%"><font color='red'>*</font>電話：</td>
+      <td width="30%" colspan="3">
+         <input type="text" name="otel" value="" class="num_only" style="width:45%;"/>
+				 分機：
+         <input type="text" name="oext" value="" class="num_only" style="width:30px;"/>
+      </td>
+      <td width="9%"><font color='red'>*</font>手機：</td>
+      <td width="30%"><input type="text" name="omobile" value="" class="num_only" style="width:45%;"/>
+			<input type="checkbox" name="bmobile_foreign" id="bmobile_foreign"/>非台灣地區</td>
+   </tr>
+   <tr>
+      <td align="left" colspan="8"><input type="checkbox" onclick="copyToReceiver(this.checked)"/>收件人同訂購人</td>
+   </tr>
+   <tr>
+      <td align="left"><font color='red'>*</font>收件人：</td>
+      <td align="left"><input type="text" name="rperson" value="" style="width:80px;"/></td>
+      <td><font color='red'>*</font>電話：</td>
+      <td colspan="3">
+         <input type="text" name="rtel" value="" class="num_only" style="width:45%;"/>
+         分機：
+         <input type="text" name="rext" value="" class="num_only" style="width:30px;"/>
+      </td>
+      <td><font color='red'>*</font>手機：</td>
+      <td><input type="text" name="rmobile" value="" class="num_only" style="width:45%;"/>
+			<input type="checkbox" name="rmobile_foreign" id="rmobile_foreign" onclick="onabroad();"/>非台灣地區</td>
+   </tr>
+   <tr>
+      <td align="left"><font color='red' class='opt_addr'>*</font>到貨地址：</td>
+      <td colspan="7" align="left">
+         <div id="addrbox">
+            <input type="hidden" id="zipcode" name="zipcode" style="width:30px;"/>
+            <input data-role="zipcode" type="text" id="zip1" name="zipcode1" style="width:30px;"/>
+            <input type="text" id="zip2" name="zipcode2" style="ime-mode:disabled;width:20px;" class="num_only"   maxlength=2/>
+            <select id="county" name="county" data-role="county"></select>
+            <select id="area" name="area" data-role="district"></select>
+            <input type="text" name="address" value="" style="width:55%;"/>
+         </div>
+      </td>
+   </tr>
+      </table>
+<input type="hidden" name="sorder_lang" id="sorder_lang" value="zh">	 
+<input type="submit" name="button" id="button" value="訂單送出" onclick="$('#zipcode').val($('#zip1').val()+$('#zip2').val());"/>
+</form>
+</div>	
+</body>  
+</html>

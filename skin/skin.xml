@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SkinSet>
+
+<SkinSource>f2blog</SkinSource>
+
+ <SkinName>014綜合萬用-藝術藍色版面</SkinName>
+
+ <SkinDesigner>智邦生活館</SkinDesigner>
+
+ <SkinVersion>0</SkinVersion><pubDate>2007-3-19</pubDate>
+
+ <DesignerURL>http://hosting.url.com.tw/</DesignerURL>
+
+ <DesignerMail>bizmail@corp.url.com.tw</DesignerMail>
+
+ <Flash>
+
+  <UseFlash>0</UseFlash>
+
+  <FlashPath/>
+
+  <FlashWidth/>
+
+  <FlashHeight/>
+
+  <FlashAlign/>
+
+  <FlashTop/>
+
+  <FlashTransparent/>
+
+ </Flash>
+
+<replacement>
+
+  <image id="banner" file="header.jpg" width="960" height="155"/>
+
+ </replacement>
+
+</SkinSet>

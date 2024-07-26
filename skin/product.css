@@ -1,0 +1,94 @@
+/* 商品 條列顯示 | 圖片顯示 切換 */
+#cglist{  display:none; }
+.clear{ clear:both; 
+ 
+}
+
+.list_seperator{ 
+margin:18px 30px; 
+border-top : 3px dotted #B8B8B8; }
+
+.Content-grid .clear{  clear:none; background:none;border:none;margin:0px;border:0px;}
+.ContentIntro_la{   *font-size:18px;  line-height:180%\9;   }
+.ContentIntro_la ul{   list-style-position:inside;}
+.log_content .product .ContentSubTitle {
+ font-weight:bold;
+ font-size:18px;  
+ line-height:120%;
+ margin-top:0px;
+ margin-bottom:10px;
+}
+.log_content .ContentIntro{  margin-bottom:10px;}
+.log_content .Content-price,.log_content .Content-link{   line-height:94%;} 
+.Content-pic { 
+ width:40%;
+ min-height:180px;
+ float:left;  
+ text-align:center; 
+ margin: 5px 15px 5px 5px;
+}
+.Content-pic img{  max-height: 300px;  vertical-align:center;}
+.ContentDesc ul {
+overflow: hidden;
+transform: translateX(-1rem);
+}
+
+.Content-grid .Content-pic{ 
+ width:96%;
+ text-align : center; 
+ margin-left:2%;
+}
+.Content-grid .Content-pic img{
+ max-width: 100%;
+ max-height: 150px;  
+ text-align : center; 
+ padding:0px;
+} 
+.Content-grid .log_content .Content .Content-body .ContentIntro_la{  display:none; }
+.Content-grid .log_content .Content .Content-body .Content-link{  display:none; } 
+.log_content .Content .Content-body .Content-descr{ display:none; }
+.Content-grid .log_content .Content .Content-body .ContentIntro{ display:none; }
+.Content-grid .log_content .Content .Content-body .Content-price{ text-align: center;  width:100%; }
+.Content-grid .log_content .product .ContentSubTitle {
+  font-weight:bold;
+  font-size:16px;
+  text-align: center;
+  width:100%; 
+}
+.Content-grid .log_content .Content .Content-result .ContentIntro_la{  display:none; }
+.Content-grid .log_content .Content .Content-result .Content-link{  display:none; } 
+.log_content .Content .Content-result .Content-descr{ display:none; }
+.Content-grid .log_content .Content .Content-result .ContentIntro{ display:none; }
+.Content-grid .log_content .Content .Content-result .Content-price{ text-align: center;  width:100%; }
+
+.Content-grid .divider {   display:none;   overflow:hidden;   clear:both;} 
+.product {  height:auto;  display:block;  padding:10px 0px ;  }
+
+.Content-grid .product {   padding:0px; } 
+.Content-grid .log_content .Content .Content-body .product{ 
+  height:auto;
+  width:30%;
+  display:block;
+  margin: 10px 0 30px 15px;
+  float:left;
+} 
+.Content-grid .log_content .Content .Content-result .product{ 
+  height:auto;
+  width:30%;
+  display:block;
+  margin: 10px 0 30px 15px;
+  float:left;
+} 
+/* 商品明細 */
+/*.productIntro{ float:left; width:54%;} */
+.ContentIntro{ width:95%;    margin-bottom:10px;}
+.ContentDetail{font-weight:bold;  line-height:150%;  font-size:18px;   margin-top:0px;} 
+.Content-desc{ font-size:14px;  margin-left:5%; width:90%;}
+/* reset 用戶內容區塊*/
+.Content-desc{ font-size: 100%;font: inherit; margin-left: 0; width: 100%; padding:5px;} 
+.Content-desc p{ letter-spacing: 0; padding: 0; } 
+#mainContent .Content-desc { line-height: inherit; }
+.Content-result p {
+    letter-spacing: 0.1em;
+    padding: 4px;
+}
