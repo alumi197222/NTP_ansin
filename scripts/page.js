@@ -77,13 +77,15 @@ $(document).ready(function() {
 	$('#tipx').click(function(){	$('#maptip').hide();	});
 	$('#corp').click(	function(){	$('#maptip').toggle();}); 
 	 var max_w = $('.Content-body').width();
-	$(".Content-body img").load(function() { 
-		if( this.width > max_w){
-			$(this).css({"max-width":max_w+"px","height":"auto"});
-		}
+
+	$(".Content-body img").load(function() {
+        if( this.width > max_w){
+            $(this).css({"max-width":max_w+"px","height":"auto"});
+        }
     }).each(function(){
         if(this.complete) $(this).trigger('load');
-	});   
+    });
+ 
 
 	if( window.location.href.indexOf("?fb=1")!=-1){
  

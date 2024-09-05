@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Allow: /skin/
 Allow: /script/
-Sitemap: https://ntp.ansin999.com/sitemap.xml
+Sitemap: https://www.ansin999.com/sitemap.xml
